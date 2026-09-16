@@ -116,10 +116,14 @@ eu-web-compliance/
 ```bash
 python3 scripts/scan.py /path/to/site --domain example.com         # summary
 python3 scripts/scan.py /path/to/site --domain example.com --json  # per-file detail
+python3 scripts/scan.py public --domain example.com                # built output of Hugo & co.
+python3 scripts/scan.py . --exclude public --exclude "*.dc.html"   # sources only, skip mockups
 ```
 
 `--domain` can be repeated and excludes your own domain and its subdomains from the external-request
-list.
+list. `--exclude` takes a glob matched against the relative path and the file or folder name. Only
+resources the browser loads by itself (`src`, stylesheets, preconnect, CSS `url()`) count as external
+requests and embeds; plain `<a href>` links do not. Minified HTML is supported.
 
 ## Scope and limits
 

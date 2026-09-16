@@ -1,0 +1,3 @@
+baseURL = "https://www.example.com/"
+languageCode = "cs"
+title = "SSG fixture"

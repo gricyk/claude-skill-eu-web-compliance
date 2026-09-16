@@ -1,11 +1,12 @@
 Scanned root: cafe-site
 Files with findings: 7
 
-External hosts referenced: 4 (5 distinct URLs)
+External hosts loaded automatically: 4 (5 distinct URLs)
   - fonts.googleapis.com
   - www.google.com
   - www.googletagmanager.com
   - www.youtube.com
+Forms submitting to external hosts: 0
 
 Files containing cookie/storage/tracking or consent-tool code: 4
   - events.html

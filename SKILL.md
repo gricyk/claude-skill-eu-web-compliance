@@ -70,9 +70,16 @@ python3 scripts/scan.py /path/to/site --domain example.com        # human-readab
 python3 scripts/scan.py /path/to/site --domain example.com --json # per-file detail
 ```
 
-`--domain` (repeatable) excludes the site's own domain(s) from the external-request list. The path is
-relative to this skill's folder. Treat the script's output as a lead list, not a verdict, confirm
-anything material by reading the actual code.
+`--domain` (repeatable) excludes the site's own domain(s) from the external-request list. `--exclude`
+(repeatable glob, e.g. `public`, `"design/*"`, `"*.dc.html"`) skips files that are not published. The
+path is relative to this skill's folder. Treat the script's output as a lead list, not a verdict,
+confirm anything material by reading the actual code.
+
+**Static site generators** (Hugo, Jekyll, Eleventy, Astro, Next.js static export, etc.): build the site
+and scan the output folder (`public/`, `_site/`, `dist/`, `out/`), because that is what visitors
+receive; read the templates by hand to find where to fix things. Minified HTML is normal input, the
+scanner handles unquoted and bare attributes. If the scanner warns that build output sits next to the
+sources, the findings are doubled, rerun it on the output folder or with `--exclude`.
 
 ### Step 3: Ground the analysis in current law
 
