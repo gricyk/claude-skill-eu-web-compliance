@@ -42,6 +42,17 @@ touch this: membership lists that reveal religious affiliation, prayer request f
 information in event registration (allergies, medical needs for a camp), or photos tagged with
 religious context. Flag these explicitly, they are a common blind spot.
 
+For religious, political, philosophical, and trade union organizations, the mere fact that a person
+donates, writes to, or subscribes to the organization can reveal the belief or membership. So look for
+an Art. 9(2) condition not only on photos and forms but also on donation flows (bank transfer details,
+payment gateway, donor lists, tax receipts) and on correspondence (contact emails, newsletters).
+Art. 9(2)(d) covers processing by such a not-for-profit body in the course of its legitimate
+activities, with appropriate safeguards, but only for members, former members, or persons in regular
+contact with it, and only if the data is not disclosed outside the body without consent. `VERIFY`
+whether one-off donors or first-time correspondents count as "persons in regular contact", and whether
+sharing with payment providers, banks, or a parent church organization counts as disclosure outside
+the body. Where 9(2)(d) does not clearly fit, explicit consent (9(2)(a)) is the usual fallback.
+
 ## 6. Transparency (Art. 12 to 14)
 
 Is there a privacy notice, is it easy to find, written in plain language, and does it actually cover
@@ -93,3 +104,38 @@ GDPR and the ePrivacy Directive work together here, see `eprivacy-checklist.md` 
 rules. Confirm the consent-management tool itself (if any) actually blocks non-essential
 cookies/scripts before consent, a banner that only hides itself while scripts already fired is a
 common real-world defect worth specifically testing for.
+
+## 14. Processors, hosting, and the chain behind them (Art. 28)
+
+List every party that processes personal data for the site: hosting, CDN, email, form backend,
+newsletter tool, analytics, AI API, payment provider. For each, confirm a data processing agreement
+(Art. 28(3)) exists, usually the provider's standard terms, and that the privacy notice names the
+recipient categories.
+
+**Who rents the server matters.** If the hosting account or server is rented by an individual (a
+volunteer, a member, an external web developer, a sole trader) rather than by the organization itself,
+the chain is typically: organization (controller) → that person (processor, needs an Art. 28 contract
+with the organization) → hosting company (sub-processor, needs the controller's prior authorization
+under Art. 28(2) and the same obligations passed down under Art. 28(4)). If that person decides on
+purposes and means on their own, they may be a controller instead. `VERIFY` the actual arrangement with
+the site owner, none of this is visible in the code.
+
+**Check where the server actually is and who runs it**, do not rely on "our server is in Germany":
+
+```bash
+dig +short A example.com; dig +short AAAA example.com
+whois -h whois.cymru.com " -v 203.0.113.10"                                 # ASN and operator
+curl -s "https://stat.ripe.net/data/prefix-overview/data.json?resource=203.0.113.10"
+curl -s "https://stat.ripe.net/data/geoloc/data.json?resource=203.0.113.10"  # approximate location
+```
+
+Read the result carefully:
+
+- The ASN registration country is the operator's country, not the datacenter's. A datacenter in the
+  EU operated by a company headquartered outside the EU is common. Storage in the EU is then fine for
+  location, but the processor is a third-country company: check its DPA, its sub-processor list,
+  whether its terms allow access from outside the EEA, and how the privacy notice describes it
+  (Art. 44 to 46, `VERIFY`).
+- If the IP belongs to a CDN or reverse proxy, the CDN is a processor too, and the origin server is not
+  visible from outside, ask the owner.
+- Check `MX` records the same way for the email provider behind the contact address.

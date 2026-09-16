@@ -81,6 +81,25 @@ receive; read the templates by hand to find where to fix things. Minified HTML i
 scanner handles unquoted and bare attributes. If the scanner warns that build output sits next to the
 sources, the findings are doubled, rerun it on the output folder or with `--exclude`.
 
+### Step 2b: Check the running site
+
+Code shows intent, the browser shows what actually happens, and in practice the most important findings
+often come from here. If the site is live or a local build can be served, and a browser tool is
+available, check at runtime and record the URL, date, browser, locale, and viewport widths in the report.
+If it cannot be done, say so and mark code-only findings accordingly.
+
+- **Pin the language first on multilingual sites.** Sites that pick a language from
+  `navigator.languages`, a cookie, or a locale redirect will silently show a test browser (usually
+  English) the wrong version. Set the choice explicitly (the site's own `localStorage` key or cookie,
+  or the `Accept-Language` header), check `location` after load, and repeat key checks per language.
+- **Cookies, storage, third-party requests** before any consent choice, after "reject", and after
+  "accept": `eprivacy-checklist.md`, section 5.
+- **Where the server really is and who runs it** (IP → ASN → provider): `gdpr-checklist.md`,
+  section 14.
+- **Accessibility at runtime**: automated checker results including "incomplete" items, text contrast
+  over images, keyboard and focus behavior with menus and overlays: `accessibility-checklist.md`,
+  section 4.
+
 ### Step 3: Ground the analysis in current law
 
 Load the checklist(s) relevant to what Step 1 revealed, from `references/`:
@@ -126,11 +145,11 @@ the whole plan or go item by item. Only after approval, edit files or write the 
 
 | File | Covers |
 |---|---|
-| `references/gdpr-checklist.md` | GDPR: lawful basis, consent, transparency, data subject rights, children's data, special categories, security, breach notification, DPO, records, international transfers |
-| `references/eprivacy-checklist.md` | Cookie/tracker consent, confidentiality of communications, direct electronic marketing |
+| `references/gdpr-checklist.md` | GDPR: lawful basis, consent, transparency, data subject rights, children's data, special categories (incl. donations to religious bodies), security, breach notification, DPO, records, international transfers, processor chain and real hosting location |
+| `references/eprivacy-checklist.md` | Cookie/tracker consent, direct electronic marketing, third-party embeds, runtime verification of cookies and requests |
 | `references/ai-act-checklist.md` | Prohibited practices, transparency for AI-generated/interactive content, high-risk classification, GPAI, current timeline caveats |
 | `references/dsa-checklist.md` | Intermediary/hosting obligations, notice-and-action, dark patterns, ad transparency, applicability thresholds |
-| `references/accessibility-checklist.md` | WCAG technical checks, EAA and Web Accessibility Directive applicability |
+| `references/accessibility-checklist.md` | WCAG technical checks, EAA and Web Accessibility Directive applicability, runtime checks (text over images, focus with overlays) |
 | `references/national-law-guide.md` | What to verify per member state, and how to search for it |
 | `references/templates/findings-report.md` | Structure of the Step 4 findings report |
 | `references/templates/` (other files) | Draft privacy policy, cookie policy, DPIA, records of processing (ROPA), AI transparency notice, accessibility statement |

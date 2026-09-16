@@ -59,3 +59,41 @@ Three different things are easy to conflate here, keep them separate in the repo
 Missing `alt`, missing `lang`, missing `<label for>`/`aria-label` on inputs, non-button clickable
 `<div>`/`<span>` elements, heading levels that skip (e.g. `<h1>` straight to `<h4>`), and low-contrast
 color combinations in the CSS, are the highest-value, cheapest-to-fix items to flag first.
+
+## 4. Runtime checks in a browser
+
+Run these on the live site or a local build, with the language pinned on multilingual sites (see
+`SKILL.md`, Step 2b), at widths 320, 375, 1024, and 1440 CSS px. 320 px is also the reflow check
+(SC 1.4.10).
+
+**Automated checker (e.g. axe-core).** Treat "incomplete" / "needs review" results as open items, not
+passes. Color contrast of text over background images, gradients, or video is almost always reported
+there and is where real failures hide.
+
+**Text over images, measured.** WCAG does not define how to measure contrast over an image, so use a
+conservative, documented approximation:
+
+1. Take the text element's line boxes (`Range.getClientRects()`) and its computed text color.
+2. Draw the image onto a `<canvas>` at its rendered size, reproducing `object-fit` and
+   `object-position` (or `background-size` and `background-position`). The image must be same-origin
+   or fetched as a blob, otherwise the canvas is tainted and pixels cannot be read.
+3. Composite any overlay on top: `linear-gradient` backgrounds, semi-transparent layers,
+   `::before`/`::after` scrims, with their real opacity at each pixel position.
+4. For every pixel under the text boxes, compute the contrast ratio between the text color and that
+   pixel's relative luminance.
+5. Report the 5th to 10th percentile (the realistic worst areas) and the median, and compare with
+   4.5:1, or 3:1 for large text (at least 24 px, or 18.66 px bold).
+6. Repeat at each width, the crop and therefore the pixels under the text change.
+
+State the method and numbers in the report, e.g. "H1 over hero photo: p10 2.3:1, median 2.8:1 at
+375 px, required 4.5:1".
+
+**Keyboard and focus.**
+
+- Tab through the whole page with a visible focus indicator on every stop (SC 2.4.7).
+- Open each menu, dialog, or overlay, then Tab and Shift+Tab: focus must not move to content hidden
+  underneath, and the focused element must not be covered by a sticky header, cookie banner, or chat
+  bubble (SC 2.4.11 Focus Not Obscured (Minimum), WCAG 2.2 AA).
+- Escape closes overlays, and after closing, focus returns to the control that opened it (SC 2.4.3
+  Focus Order).
+- Nothing traps focus (SC 2.1.2).

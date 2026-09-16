@@ -1,0 +1,1 @@
+No signals found by the heuristic scan. This does not mean the site is compliant, it means this fast pass found nothing to flag, read the code directly for a full check.

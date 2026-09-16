@@ -1,7 +1,9 @@
-# Example: reviewing a fictional café website
+# Examples
 
-A complete run of the skill on a small, deliberately flawed site. **Everything about the café is
-fictional**; the legal status checks in the report were real, made on 16 September 2026.
+Two complete runs of the skill on **fictional** sites. The legal status checks in the reports were real,
+made on 16 September 2026.
+
+## 1. Café website with typical problems
 
 | File | Workflow step | What it shows |
 |---|---|---|
@@ -16,8 +18,21 @@ before consent behind an "Accept all"-only banner, a pre-ticked newsletter box, 
 without explicit consent, chat logs with IP addresses kept forever, blog comments with no way to report
 them, and a handful of accessibility issues.
 
-Reproduce the scan from the repository root:
+## 2. Hiking club website that is already fine
+
+| File | What it shows |
+|---|---|
+| [`hiking-club-site/CONTEXT.md`](hiking-club-site/CONTEXT.md) | Owner's answers: volunteer association, Hugo site, email contact only |
+| [`hiking-club-site/public/`](hiking-club-site/public/) | Minified Hugo build output, the input the scanner should get for static site generators |
+| [`hiking-club-site-scan.txt`](hiking-club-site-scan.txt) | Scanner output: no signals |
+| [`hiking-club-site-report.md`](hiking-club-site-report.md) | A short report whose main job is saying clearly what does **not** apply (cookie banner, DSA, accessibility directives, DPO, DPIA) instead of inventing duties |
+
+## Reproduce the scans
+
+From the repository root:
 
 ```bash
-cd examples && python3 ../scripts/scan.py cafe-site --domain example.com
+cd examples
+python3 ../scripts/scan.py cafe-site --domain example.com
+python3 ../scripts/scan.py hiking-club-site/public --domain example.com
 ```

@@ -198,13 +198,17 @@ class Cli(unittest.TestCase):
 
 
 class ExampleOutput(unittest.TestCase):
-    def test_saved_example_scan_is_up_to_date(self):
+    EXAMPLES = {"cafe-site-scan.txt": "cafe-site", "hiking-club-site-scan.txt": "hiking-club-site/public"}
+
+    def test_saved_example_scans_are_up_to_date(self):
         examples = os.path.join(ROOT, "examples")
-        proc = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "scan.py"), "cafe-site",
-                               "--domain", "example.com"], capture_output=True, text=True, cwd=examples)
-        with open(os.path.join(examples, "cafe-site-scan.txt"), encoding="utf-8") as f:
-            self.assertEqual(proc.stdout, f.read(),
-                             "examples/cafe-site-scan.txt is stale, regenerate it (see examples/README.md)")
+        for saved, root in self.EXAMPLES.items():
+            proc = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "scan.py"), root,
+                                   "--domain", "example.com"], capture_output=True, text=True, cwd=examples)
+            self.assertEqual(proc.stderr, "", saved)
+            with open(os.path.join(examples, saved), encoding="utf-8") as f:
+                self.assertEqual(proc.stdout, f.read(),
+                                 f"examples/{saved} is stale, regenerate it (see examples/README.md)")
 
 
 if __name__ == "__main__":

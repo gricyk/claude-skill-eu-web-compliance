@@ -58,6 +58,13 @@ site's operator deploys an AI feature and clearly has no policy or training arou
   in-force date for systems already on the market was moved by the Digital Omnibus on AI, see the
   snapshot above and `VERIFY`.
 
+**If the site itself promises to label AI-generated content** (in an AI policy, privacy notice, or
+"about" page), check that the promise is kept everywhere, not only on full articles: excerpts and
+leads on listing pages, card and teaser summaries, image captions, `meta description` and
+`og:description`, RSS feeds, and translated language versions. An unkept promise is a trust and
+possibly a misleading-statement problem even where the Art. 50(4) editorial-review exception would
+otherwise apply.
+
 For a church, ministry, or small business site: a chatbot needs a "you're chatting with an AI
 assistant" style disclosure, AI-generated images or illustrative content used editorially should
 generally be labeled as AI-generated, and AI-drafted blog/news content presented as if from the

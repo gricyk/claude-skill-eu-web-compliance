@@ -35,13 +35,16 @@ when something is unverified instead of guessing.
    records of processing, AI transparency notices, accessibility statements), and only edits files or
    publishes drafts after you approve the plan.
 
-## Example
+## Examples
 
-See [`examples/`](examples/) for a full run on a fictional café website: the scanner output, a findings
-report with dated legal sources, and the remediation plan the skill presents before changing anything.
-Short version of what it caught: a chatbot instructed to hide that it is an AI, analytics loading
-before cookie consent, a pre-ticked newsletter box, and allergy data collected without explicit
-consent.
+See [`examples/`](examples/) for two full runs on fictional sites:
+
+- **A café website with typical problems**: scanner output, a findings report with dated legal sources,
+  and the remediation plan the skill presents before changing anything. It caught a chatbot instructed
+  to hide that it is an AI, analytics loading before cookie consent, a pre-ticked newsletter box, and
+  allergy data collected without explicit consent.
+- **A hiking club website that is already fine** (minified Hugo output): a short report that says
+  plainly which obligations do not apply, including why no cookie banner is needed.
 
 ## Install
 
@@ -105,7 +108,7 @@ eu-web-compliance/
 │       └── accessibility-statement.md
 ├── scripts/
 │   └── scan.py                       # fast, stdlib-only structural scan of site source
-├── examples/                         # demo run on a fictional site (not used by the skill)
+├── examples/                         # demo runs on fictional sites (not used by the skill)
 └── tests/                            # unit tests for scan.py and SKILL.md (not used by the skill)
 ```
 
@@ -133,6 +136,13 @@ requests and embeds; plain `<a href>` links do not. Minified HTML is supported.
 - `scripts/scan.py` is a heuristic lead generator (regex over source text), not a compiler or a
   runtime analyzer. It can both miss things and false-positive. Every material finding should be
   confirmed by reading the actual code before it goes in a report.
+- Minified HTML is supported. For static site generators (Hugo, Jekyll, Eleventy, Astro, Next.js static
+  export), the skill scans the build output and reads the templates by hand.
+- Code review alone misses a lot. When the site is live or can be served locally, the skill checks it in
+  a browser: cookies and `Set-Cookie` headers, requests to third-party hosts before and after consent,
+  where the server really is (IP → ASN), text contrast over images, and keyboard focus with menus and
+  overlays, with the language pinned on multilingual sites. Findings it could not confirm at runtime are
+  labeled as code only.
 - The skill will not edit your files or publish a legal document without first showing you a written
   plan and getting your explicit approval.
 - If a finding has real regulatory or financial exposure, the skill will tell you to get a lawyer or

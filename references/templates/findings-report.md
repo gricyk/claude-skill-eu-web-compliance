@@ -28,7 +28,9 @@ Protection Officer before relying on it.
 - Regulations covered: {{GDPR / ePrivacy / AI Act / DSA / accessibility}}
 - Out of scope, and why: {{out_of_scope}}
 - Method: manual code review of {{files_or_areas}}, `scripts/scan.py` heuristic scan, web checks listed
-  below. Runtime behavior (cookies actually set in a browser) was {{tested / not tested}}.
+  below.
+- Runtime checks: {{done / not done}}. URL {{url}}, date {{date}}, browser {{browser}}, pinned language
+  {{language_and_how}}, widths {{widths}}. Findings not confirmed at runtime are labeled "code only".
 
 ## Live legal-status checks
 

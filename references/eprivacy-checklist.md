@@ -51,3 +51,24 @@ cookies or share the visitor's IP address before any consent choice. Options wor
 report: load the embed only after consent, use a privacy-enhanced/no-cookie mode if the provider offers
 one, self-host static assets like fonts instead of calling an external CDN, or replace the embed with a
 click-to-load placeholder.
+
+## 5. Verify at runtime, not only in code
+
+Reading the banner code is not enough, scripts bundled elsewhere, tag managers, embeds, and server
+headers set things the banner never sees. In a fresh browser profile (no extensions, empty storage),
+with the language pinned (see `SKILL.md`, Step 2b):
+
+1. **Before any interaction**, on the landing page and one inner page:
+   - `document.cookie` in the console. It does not show `HttpOnly` cookies or cookies set inside
+     third-party frames, so also read the `Set-Cookie` headers of every response in the network panel
+     (or `curl -sI https://example.com/ | grep -i set-cookie` for the document itself), and the
+     browser's storage view for all origins.
+   - `localStorage`, `sessionStorage`, and IndexedDB keys. Note what each key is for, a stored language
+     or theme choice the user made is usually strictly necessary, an analytics client ID is not.
+   - The network request list filtered to hosts other than the site's own: fonts, CDNs, maps, video,
+     analytics, CAPTCHA, error tracking. Each is at least an IP address sent to a third party.
+2. **After clicking "reject"** (and after reloading and navigating to another page): nothing
+   non-essential may appear. A banner that only hides itself while tags keep firing is a real defect.
+3. **After clicking "accept"**: note which cookies and hosts appear, they must match the cookie policy.
+4. Record the cookie names, domains, lifetimes, and third-party hosts in the report, with the date. Use
+   the same data for the cookie policy table (`templates/cookie-policy.md`).
