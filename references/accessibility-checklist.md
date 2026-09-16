@@ -84,9 +84,16 @@ conservative, documented approximation:
 5. Report the 5th to 10th percentile (the realistic worst areas) and the median, and compare with
    4.5:1, or 3:1 for large text (at least 24 px, or 18.66 px bold).
 6. Repeat at each width, the crop and therefore the pixels under the text change.
+7. Reload the page at each width instead of resizing an open page, and measure before scrolling.
+   Parallax, sticky, and scroll-linked effects position backgrounds with transforms that are only
+   recalculated on scroll, so after a resize the image under the text is not what visitors see.
+8. Read the text color from the computed style of the actual text node, do not assume it. Measure
+   again after every fix: an overlay designed for white text can still fail for grey text.
+9. If the browser tab is in the background, avoid `requestAnimationFrame` in the measuring script,
+   it may never fire. Use a short timeout instead.
 
-State the method and numbers in the report, e.g. "H1 over hero photo: p10 2.3:1, median 2.8:1 at
-375 px, required 4.5:1".
+State the method and numbers in the report, e.g. "H1 over hero photo (large text): p10 2.3:1,
+median 2.8:1 at 375 px, required 3:1".
 
 **Keyboard and focus.**
 
