@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap");
+
+body { font-family: "Inter", sans-serif; color: #9a9a9a; background: #ffffff; }
+h1, h2, h3 { font-family: "Playfair Display", serif; }
+.cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; padding: 1rem; background: #222; color: #fff; }
+.cookie-banner .settings { font-size: 0.7rem; color: #555; }

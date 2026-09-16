@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The future of latte art – Example Café blog</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/cookie-banner.js" defer></script>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>The future of latte art</h1>
+      <img src="/img/blog/robot-barista.png" alt="A robot barista pouring a perfect rosetta">
+      <p>Our barista team shares what we learned at this year's championship...</p>
+    </article>
+
+    <section id="comments">
+      <h2>Comments</h2>
+      <form class="comment-form" action="/api/comments" method="post">
+        <label for="cm-name">Name</label>
+        <input type="text" id="cm-name" name="name">
+        <label for="cm-email">Email (not published)</label>
+        <input type="email" id="cm-email" name="email">
+        <label for="cm-text">Comment</label>
+        <textarea id="cm-text" name="comment"></textarea>
+        <button type="submit">Post comment</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+Scanned root: cafe-site
+Files with findings: 7
+
+External hosts referenced: 4 (5 distinct URLs)
+  - fonts.googleapis.com
+  - www.google.com
+  - www.googletagmanager.com
+  - www.youtube.com
+
+Files containing cookie/storage/tracking or consent-tool code: 4
+  - events.html
+  - index.html
+  - assets/chat-widget.js
+  - assets/cookie-banner.js
+Files with third-party embeds, fonts, or CAPTCHA (may transfer IP before consent): 2
+  - index.html
+  - assets/styles.css
+Files containing ad code or tracking pixels: 0
+Files containing AI-related code/keywords: 2
+  - assets/chat-widget.js
+  - server/chat.ts
+Files with comment/upload features (possible DSA hosting duties): 1
+  - blog/ai-latte-art.html
+
+Forms found: 4, fields with no matching <label>/aria-label: 2, pre-checked checkboxes/radios: 1
+Images missing alt attribute: 2
+Clickable non-button elements: 1
+Files with skipped heading levels: 1
+  - index.html
+Files with <html> missing a lang attribute: 1
+  - index.html
+Files with <html> but no viewport meta tag: 1
+  - index.html
+
+This is a heuristic lead list, not a verdict. Confirm every item against the source and against references/*.md before including it in a compliance report.

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events – Example Café</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EXAMPLE123"></script>
+  <script src="/assets/cookie-banner.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Workshops and events</h1>
+
+    <h2>Latte-art workshop for adults</h2>
+    <h2>Hot chocolate art for kids (8–14)</h2>
+
+    <form action="/api/bookings" method="post">
+      <label for="b-name">Your name</label>
+      <input type="text" id="b-name" name="name" required>
+      <label for="b-email">Email</label>
+      <input type="email" id="b-email" name="email" required>
+      <label for="b-phone">Phone</label>
+      <input type="tel" id="b-phone" name="phone">
+      <label for="b-event">Event</label>
+      <select id="b-event" name="event">
+        <option>Latte-art workshop</option>
+        <option>Hot chocolate art for kids</option>
+      </select>
+      <label for="b-child">Child's name and age (kids' workshop only)</label>
+      <input type="text" id="b-child" name="child">
+      <label for="b-diet">Dietary requirements, allergies, or health conditions we should know about</label>
+      <textarea id="b-diet" name="dietary"></textarea>
+      <button type="submit">Book</button>
+    </form>
+  </main>
+</body>
+</html>

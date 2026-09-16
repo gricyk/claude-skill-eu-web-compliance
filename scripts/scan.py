@@ -121,8 +121,8 @@ USER_CONTENT_PATTERNS = [
 
 def iter_source_files(root):
     for dirpath, dirnames, filenames in os.walk(root):
-        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
-        for fn in filenames:
+        dirnames[:] = sorted(d for d in dirnames if d not in SKIP_DIRS and not d.startswith("."))
+        for fn in sorted(filenames):
             if fn.endswith((".min.js", ".min.css")):
                 continue
             ext = os.path.splitext(fn)[1].lower()

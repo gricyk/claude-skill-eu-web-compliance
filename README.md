@@ -35,6 +35,14 @@ when something is unverified instead of guessing.
    records of processing, AI transparency notices, accessibility statements), and only edits files or
    publishes drafts after you approve the plan.
 
+## Example
+
+See [`examples/`](examples/) for a full run on a fictional café website: the scanner output, a findings
+report with dated legal sources, and the remediation plan the skill presents before changing anything.
+Short version of what it caught: a chatbot instructed to hide that it is an AI, analytics loading
+before cookie consent, a pre-ticked newsletter box, and allergy data collected without explicit
+consent.
+
 ## Install
 
 This repository's root *is* the skill folder (it contains `SKILL.md` directly). Clone it into your
@@ -79,6 +87,7 @@ eu-web-compliance/
 │       └── accessibility-statement.md
 ├── scripts/
 │   └── scan.py                       # fast, stdlib-only structural scan of site source
+├── examples/                         # demo run on a fictional site (not used by the skill)
 └── tests/                            # unit tests for scan.py and SKILL.md (not used by the skill)
 ```
 
