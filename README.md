@@ -110,10 +110,27 @@ list.
 ## Legal snapshot
 
 The reference files contain a dated snapshot of time-sensitive points, last checked on
-**16 September 2026**: the Digital Omnibus on AI (reported as Regulation (EU) 2026/1744) postponed the
+**16 September 2026**: the Digital Omnibus on AI (Regulation (EU) 2026/1744) postponed the
 AI Act's high-risk deadlines, while the GDPR/ePrivacy Digital Omnibus (cookie rules in a new GDPR
 Art. 88a) was still in the legislative procedure. The skill is instructed to re-check these with a web
 search before citing them, never to rely on the snapshot alone.
+
+## Official sources
+
+The checklists are built on these primary texts. Consolidated versions (with later amendments) are
+linked from each EUR-Lex page.
+
+| Area | Legal act |
+|---|---|
+| GDPR | [Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj) |
+| ePrivacy (cookies, e-marketing) | [Directive 2002/58/EC](https://eur-lex.europa.eu/eli/dir/2002/58/oj), amended by [Directive 2009/136/EC](https://eur-lex.europa.eu/eli/dir/2009/136/oj) |
+| AI Act | [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj), amended by the Digital Omnibus on AI, [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj) |
+| Digital Services Act | [Regulation (EU) 2022/2065](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) |
+| European Accessibility Act | [Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj) |
+| Web Accessibility Directive | [Directive (EU) 2016/2102](https://eur-lex.europa.eu/eli/dir/2016/2102/oj), model accessibility statement: [Implementing Decision (EU) 2018/1523](https://eur-lex.europa.eu/eli/dec_impl/2018/1523/oj) |
+| SME size definitions (DSA, EAA exemptions) | [Commission Recommendation 2003/361/EC](https://eur-lex.europa.eu/eli/reco/2003/361/oj) |
+| Accessibility technical standards | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) (W3C), [EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/) (ETSI, all versions) |
+| Pending: Digital Omnibus (GDPR, ePrivacy) | Commission proposal COM(2025) 837, status: [European Parliament Legislative Train](https://www.europarl.europa.eu/legislative-train/theme-a-new-plan-for-europe-s-sustainable-prosperity-and-competitiveness/file-digital-package). Not adopted law as of the last check |
 
 ## Contributing
 

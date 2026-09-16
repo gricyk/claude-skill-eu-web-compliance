@@ -5,24 +5,27 @@ a recommender or personalization engine, automated scoring/screening, or similar
 site with no AI feature has essentially no AI Act exposure, say so and skip the rest.
 
 **Always web search the current timeline before citing a deadline.** Treat every date below as the
-situation when this file was last checked (16 September 2026, from secondary legal commentary), not a
-guarantee, and confirm with a search, ideally against EUR-Lex, before using it in a report.
+situation when this file was last checked (16 September 2026, against the Official Journal text on
+EUR-Lex), not a guarantee, and confirm with a search before using it in a report, later amendments or
+corrigenda may exist.
 
 Snapshot as last checked:
 
 - Entered into force 1 August 2024; generally applicable from 2 August 2026.
 - Prohibited practices (Art. 5) and AI literacy (Art. 4): applicable since 2 February 2025.
-- The "Digital Omnibus on AI", reported as Regulation (EU) 2026/1744 (in force 27 July 2026), amended
-  the timeline:
+- The "Digital Omnibus on AI", Regulation (EU) 2026/1744 of 8 July 2026 (OJ L, 24.7.2026, in force on
+  the third day after publication), https://eur-lex.europa.eu/eli/reg/2026/1744/oj, amended the
+  timeline:
   - Annex III high-risk systems: postponed to 2 December 2027.
   - High-risk AI in products covered by Annex I sectoral legislation: postponed to 2 August 2028.
   - Art. 50 disclosure duties for deployers (chatbots, deepfakes, public-interest text): not postponed,
     apply from 2 August 2026.
-  - Art. 50(2) machine-readable marking, for systems already on the market before 2 August 2026:
-    reported as 2 December 2026.
-  - Reported new prohibition on AI systems used to generate child sexual abuse material or
-    non-consensual intimate imagery, and SME relief extended to small mid-caps.
-  `VERIFY` the regulation number and each date against the Official Journal text before citing.
+  - Art. 50(2) machine-readable marking, for providers of systems placed on the market before
+    2 August 2026: must comply by 2 December 2026 (new Art. 111(4)).
+  - New prohibited practices added to Art. 5 (points (ba), (bb) of Art. 5(1), and Art. 5(1a), (1b)),
+    applicable from 2 December 2026. Secondary sources describe them as covering AI used to generate
+    child sexual abuse material or non-consensual intimate imagery, `VERIFY` the exact wording.
+  - Secondary sources report SME relief extended to small mid-cap enterprises, `VERIFY`.
 
 ## 1. Prohibited practices (Art. 5)
 

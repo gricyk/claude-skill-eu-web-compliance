@@ -8,7 +8,7 @@ Three different things are easy to conflate here, keep them separate in the repo
   apps. If the site belongs to a public authority, this applies, and normally requires a published
   accessibility statement with a feedback mechanism (draft one from
   `templates/accessibility-statement.md`). The technical benchmark is the harmonised standard
-  EN 301 549, which maps to WCAG 2.1 Level AA, `VERIFY` the currently referenced version.
+  EN 301 549, whose V3.2.1 maps to WCAG 2.1 Level AA; a V4.1.1 was published in September 2026, `VERIFY` which version is currently cited in the Official Journal and what it references.
 - **European Accessibility Act (Directive (EU) 2019/882)**: binds specific private-sector products and
   services, e-commerce, banking, e-books, certain transport and telecom services, among others, with
   requirements applicable from 28 June 2025 (national transposition laws apply, with transitional
