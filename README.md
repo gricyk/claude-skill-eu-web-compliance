@@ -45,6 +45,19 @@ consent.
 
 ## Install
 
+### claude.ai (web and desktop app)
+
+1. Download `eu-web-compliance-vX.Y.Z.zip` from the
+   [latest release](https://github.com/gricyk/claude-skill-eu-web-compliance/releases/latest).
+   It contains only what the skill needs (`SKILL.md`, `references/`, `scripts/`, `LICENSE`).
+2. In claude.ai, open **Settings → Capabilities** and make sure **Code execution** is enabled.
+3. Under **Skills**, click **Upload skill**, select the zip, and check that the skill is toggled on.
+
+On claude.ai, Claude cannot read files on your computer, so upload your site's source (as a zip or
+individual files) to the conversation, or give it the site's URL.
+
+### Claude Code
+
 This repository's root *is* the skill folder (it contains `SKILL.md` directly). Clone it into your
 Claude Skills directory under the skill's own name, `eu-web-compliance`:
 
@@ -58,12 +71,17 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/gricyk/claude-skill-eu-web-compliance.git ~/.claude/skills/eu-web-compliance
 ```
 
-If you downloaded a zip instead of cloning, just unzip it and rename the resulting folder to
-`eu-web-compliance` inside `.claude/skills/`.
+Start a new Claude Code session after installing. To update later, run
+`git -C ~/.claude/skills/eu-web-compliance pull` (or the project-level path).
 
-Claude (in Claude Code or claude.ai, wherever Skills are supported) will pick it up automatically when
-a conversation matches the triggers described in `SKILL.md`'s frontmatter, no explicit invocation is
-required, though you can always ask directly, e.g. "check this site for GDPR and AI Act compliance".
+If you prefer not to use git, unzip the release zip into `.claude/skills/` or `~/.claude/skills/`; it
+already contains a folder named `eu-web-compliance`.
+
+### Using it
+
+Claude picks the skill up automatically when a conversation matches the triggers described in
+`SKILL.md`'s frontmatter, no explicit invocation is required, though you can always ask directly, e.g.
+"check this site for GDPR and AI Act compliance".
 
 ## Structure
 
