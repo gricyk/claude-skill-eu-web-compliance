@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
+
+# Local article drafts and audit materials (contain infrastructure details, never publish)
+articles/
