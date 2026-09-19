@@ -126,6 +126,7 @@ each finding stating: the article or provision,
 what was found in the code or content, a risk label (`info` / `gap` / `likely violation`), and a
 confidence level. Anything not independently verified gets `VERIFY` with a note on what to check and
 where. Do not smooth over uncertainty to make the report read more authoritative than it is.
+Save it where Step 6 says, never inside the site's own files.
 
 ### Step 5: Consult before changing anything
 
@@ -142,6 +143,11 @@ the whole plan or go item by item. Only after approval, edit files or write the 
 - Draft legal documents as needed, filled in only with confirmed facts, placeholders left visible for
   anything unconfirmed
 - The list of code changes made, or proposed and pending approval
+
+Unless the user names a location, save the report and drafts outside anything that gets published:
+the project root or a non-published folder such as `compliance/`, never the site's source folder and
+never build output (`public/`, `_site/`, `dist/`, `out/`). A list of violations must not go live, and
+neither may a draft with placeholders. Say where each file was saved.
 
 ## Reference files
 
