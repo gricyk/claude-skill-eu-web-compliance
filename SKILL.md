@@ -23,7 +23,9 @@ legal documents for the user to review and approve.
    implementing law are all actively changing. Before stating any deadline, threshold, or provision
    that is less than roughly two years old, do a web search for its current status and name the
    source and the date you checked it. Never silently rely on a hardcoded date in these reference
-   files without confirming it is still current.
+   files without confirming it is still current. This applies to short chat answers too, not only
+   the findings report: next to each such date write e.g. "Checked 19 Sep 2026: <source>", or mark
+   it `VERIFY`. A list of sources without a check date is not enough.
 4. **Never edit site files or publish a legal document without a prior written change plan and
    explicit user approval.** Show what will change, where, and why, then wait.
 5. **Preserve the site owner's own words.** Fix compliance defects, do not rewrite content, tone, or
