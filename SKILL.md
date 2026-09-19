@@ -145,7 +145,9 @@ the whole plan or go item by item. Only after approval, edit files or write the 
 Unless the user names a location, save the report and drafts outside anything that gets published:
 the project root or a non-published folder such as `compliance/`, never the site's source folder and
 never build output (`public/`, `_site/`, `dist/`, `out/`). A list of violations must not go live, and
-neither may a draft with placeholders. Say where each file was saved.
+neither may a draft with placeholders. If the whole project folder is published (for example GitHub
+Pages served from the root, or a plain folder of HTML files), ask the user where to save instead. Say
+where each file was saved.
 
 ## Reference files
 
