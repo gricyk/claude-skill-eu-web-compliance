@@ -195,6 +195,11 @@ claude plugin eval . --scaffold --ablation with-without --judge-model opus --all
 $20 in API usage, so add `--case '04-*'` (a glob) to run only the cases a change affects. Results go
 to `evals/results/`, which is git-ignored.
 
+The skill is loaded from this repository, so the agent under test can also read `examples/`, which
+holds the reference reports for the same sites the fixtures copy. Cases 01, 02 and 05 have a
+`no-reference-answers` grader that fails a run if any tool call names an `examples/*-report.md` or
+`examples/*-remediation-plan.md` file.
+
 ## License
 
 Apache License 2.0, see `LICENSE`. Copyright 2026 Igor Gricyk.
