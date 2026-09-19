@@ -5,3 +5,6 @@ __pycache__/
 
 # Local article drafts and audit materials (contain infrastructure details, never publish)
 articles/
+
+# Eval run outputs (reports and aggregate results from claude plugin eval)
+evals/results/
