@@ -109,6 +109,7 @@ eu-web-compliance/
 ├── scripts/
 │   └── scan.py                       # fast, stdlib-only structural scan of site source
 ├── examples/                         # demo runs on fictional sites (not used by the skill)
+├── evals/                            # claude plugin eval suite (not used by the skill)
 └── tests/                            # unit tests for scan.py and SKILL.md (not used by the skill)
 ```
 
@@ -182,6 +183,17 @@ pattern for other member states, corrections to the checklists as the law change
 ```bash
 python3 -m unittest discover -s tests -v
 ```
+
+For changes to `SKILL.md` or `references/`, also run the behavioral evals in `evals/`. Each case runs
+with and without the skill, and the report shows the difference. From the repository root:
+
+```bash
+claude plugin eval . --scaffold --ablation with-without --judge-model opus --allow-tools Edit,Write,Bash,WebFetch,WebSearch --no-publish
+```
+
+`--scaffold` is required: it copies the example sites into each run's sandbox. A full run costs about
+$20 in API usage, so add `--case '04-*'` (a glob) to run only the cases a change affects. Results go
+to `evals/results/`, which is git-ignored.
 
 ## License
 
